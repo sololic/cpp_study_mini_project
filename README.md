@@ -66,14 +66,20 @@ Python을 주력으로 사용하던 개발자가 **로보틱스 실무**에 필�
 ```
 cpp_study_mini_project/
 │
-├── phase1_cpp_basics/          # C++ 기초 학습 예제
-│   ├── week1/                  # 자료형, 포인터, 함수 등
-│   └── week2/                  # 클래스, 스마트포인터, 콜백 등
+├── phase1_cpp_basics/               # C++ 기초 학습 예제
+│   ├── week1/
+│   │   ├── concepts/
+│   │   │   ├── AI_basics/           # AI 생성 개념 예제 (data_types, pointers 등)
+│   │   │   └── My_basics/           # 직접 작성한 추가 학습 코드
+│   │   ├── questions/               # 개념 확인 문제 풀이
+│   │   ├── week1_basics.cpp         # 리팩토링 전 단일 파일 (히스토리용)
+│   │   └── README.md
+│   └── week2/                       # 클래스, 스마트포인터, 콜백 등
 │
-├── phase2_problem_solving/     # 프로그래머스 문제풀이
+├── phase2_problem_solving/          # 프로그래머스 문제풀이
 │   ├── lv0/
-│   │   ├── 문제이름.cpp        # 풀이 코드
-│   │   └── 문제이름.md         # 문제 분석 노트
+│   │   ├── 문제이름.cpp             # 풀이 코드
+│   │   └── 문제이름.md              # 문제 분석 노트
 │   ├── lv1/
 │   └── lv2/
 │

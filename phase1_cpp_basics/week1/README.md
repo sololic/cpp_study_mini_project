@@ -8,11 +8,17 @@ Python 개발자 관점에서 C++ 핵심 개념을 정리한 파일 모음입니
 
 ```
 week1/
-├── main.cpp          ← 전체 실행 진입점
-├── data_types.cpp/h  ← 자료형
-├── references.cpp/h  ← 참조
-├── pointers.cpp/h    ← 포인터
-└── vectors.cpp/h     ← 동적 배열 (std::vector)
+├── concepts/
+│   ├── AI_basics/        ← AI 생성 개념 예제
+│   │   ├── main.cpp      ← 전체 실행 진입점
+│   │   ├── data_types.cpp/h  ← 자료형
+│   │   ├── references.cpp/h  ← 참조
+│   │   ├── pointers.cpp/h    ← 포인터
+│   │   └── vectors.cpp/h     ← 동적 배열 (std::vector)
+│   └── My_basics/        ← 직접 작성한 추가 학습 코드
+├── questions/            ← 개념 확인 문제 풀이
+├── week1_basics.cpp      ← 리팩토링 전 단일 파일 (히스토리용)
+└── README.md
 ```
 
 ---
@@ -35,6 +41,7 @@ Python은 `.py` 파일을 바로 실행하지만, C++은 반드시 **컴파일**
 ### 빌드 명령어 분석
 
 ```bash
+cd concepts/AI_basics
 g++ -std=c++17 main.cpp data_types.cpp references.cpp pointers.cpp vectors.cpp -o week1
 ```
 
@@ -64,6 +71,9 @@ g++ -std=c++17 main.cpp data_types.cpp references.cpp pointers.cpp vectors.cpp -
 ### 전체 한번에 실행
 
 ```bash
+# 0단계: AI_basics 폴더로 이동
+cd concepts/AI_basics
+
 # 1단계: 컴파일 (실행 파일 생성)
 g++ -std=c++17 main.cpp data_types.cpp references.cpp pointers.cpp vectors.cpp -o week1
 
@@ -197,6 +207,9 @@ Python의 `import`와 같은 역할이다. 기능을 사용하려면 해당 헤�
 | `#include <iostream>` | `import sys` |
 | `#include <string>` | (기본 내장) |
 | `#include <vector>` | (기본 내장) |
+
+> **`<iostream>`** : C++에서 표준 입출력 스트림을 제공하는 라이브러리.  
+> 화면에 출력(`std::cout`)하거나 키보드로 입력(`std::cin`)받을 때 반드시 포함해야 한다.
 
 ---
 
@@ -367,4 +380,110 @@ int main() {
     vectors();
 }
 ```
+
+---
+
+## `.cpp` 와 `.h` 를 나누는 이유
+
+Python은 파일 하나에 함수를 정의하고 바로 `import`해서 쓰면 된다.  
+C++은 **선언(declaration)** 과 **정의(definition)** 를 분리하는 관습이 있다.
+
+| 파일 | 역할 | 포함 내용 |
+|------|------|-----------|
+| `.h` (헤더) | 선언 | 함수 이름, 매개변수, 반환 타입만 명시 |
+| `.cpp` (소스) | 정의 | 실제 함수 구현 코드 |
+
+---
+
+### 왜 나누는가?
+
+**1. 컴파일 단위 분리**
+
+C++은 파일 단위로 컴파일된다. `.cpp` 파일 하나가 하나의 컴파일 단위다.  
+`main.cpp`가 `pointers.cpp`의 함수를 쓰려면, 그 함수가 **존재한다는 사실(선언)** 을 먼저 알아야 한다.  
+`.h` 파일이 그 역할을 한다.
+
+```
+main.cpp  →  #include "pointers.h"  →  "pointers() 함수가 있구나" (선언 확인)
+                                    →  링커가 pointers.cpp의 구현과 연결
+```
+
+**2. 재사용성**
+
+`.h`만 `#include`하면 어느 파일에서든 해당 함수를 쓸 수 있다.  
+구현(`cpp`)을 몰라도 **인터페이스(h)** 만 알면 사용 가능하다.  
+Python의 `import`와 비슷하지만, 선언과 구현이 명시적으로 분리된 구조다.
+
+**3. 컴파일 속도**
+
+파일이 많아지면 변경된 `.cpp`만 다시 컴파일하면 된다.  
+헤더만 바뀌지 않았다면 다른 파일은 재컴파일 불필요 → 빌드 속도 향상.
+
+---
+
+### 어떻게 나누는가?
+
+**`.h` 에 들어가는 것 — 선언만**
+
+```cpp
+// pointers.h
+#pragma once          // 이 헤더가 중복 포함되지 않도록 방지
+
+void pointers();      // 함수 선언 (이름 + 매개변수 + 반환타입만)
+```
+
+**`.cpp` 에 들어가는 것 — 구현**
+
+```cpp
+// pointers.cpp
+#include "pointers.h"   // 자신의 헤더 포함
+#include <iostream>
+
+void pointers() {        // 실제 구현
+    int val = 42;
+    int* ptr = &val;
+    std::cout << "[포인터] val: " << val << "\n";
+    // ...
+}
+```
+
+**다른 파일에서 사용할 때**
+
+```cpp
+// main.cpp
+#include "pointers.h"   // 선언만 가져옴
+
+int main() {
+    pointers();         // 링커가 pointers.cpp의 구현과 연결해줌
+    return 0;
+}
+```
+
+---
+
+### `#pragma once` 란?
+
+헤더 파일 맨 위에 쓰는 전처리기 지시문이다.
+
+```cpp
+#pragma once
+```
+
+같은 헤더가 여러 파일에서 중복 `#include` 되면 선언이 중복돼 컴파일 오류가 난다.  
+`#pragma once`는 **한 번만 포함되도록** 자동으로 막아준다.
+
+| 방식 | 코드 |
+|------|------|
+| `#pragma once` (현대적, 권장) | `#pragma once` |
+| Include Guard (전통적) | `#ifndef POINTERS_H` / `#define POINTERS_H` / `#endif` |
+
+---
+
+### Python vs C++ 비교
+
+| | Python | C++ |
+|--|--------|-----|
+| 선언/정의 분리 | 없음 (하나의 파일) | `.h` (선언) + `.cpp` (정의) |
+| 가져오기 | `import pointers` | `#include "pointers.h"` |
+| 실행 연결 | 인터프리터가 자동 처리 | 링커가 `.cpp` 구현과 연결 |
 
