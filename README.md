@@ -69,12 +69,22 @@ cpp_study_mini_project/
 ├── phase1_cpp_basics/               # C++ 기초 학습 예제
 │   ├── week1/
 │   │   ├── concepts/
-│   │   │   ├── AI_basics/           # AI 생성 개념 예제 (data_types, pointers 등)
+│   │   │   ├── AI_basics/           # AI 생성 개념 예제
+│   │   │   │   ├── main.cpp
+│   │   │   │   ├── data_types.cpp/h
+│   │   │   │   ├── references.cpp/h
+│   │   │   │   ├── pointers.cpp/h
+│   │   │   │   └── vectors.cpp/h
 │   │   │   └── My_basics/           # 직접 작성한 추가 학습 코드
+│   │   │       └── 1_test_iostream.cpp  # iostream 실습 (에러 재현 기록 포함)
 │   │   ├── questions/               # 개념 확인 문제 풀이
 │   │   ├── week1_basics.cpp         # 리팩토링 전 단일 파일 (히스토리용)
 │   │   └── README.md
-│   └── week2/                       # 클래스, 스마트포인터, 콜백 등
+│   └── week2/
+│       ├── review/                  # 1단계: 참조·포인터·동적배열 복습
+│       ├── concepts/                # 2단계: 클래스·스마트포인터·람다·콜백
+│       ├── questions/               # 3단계: 실습 문제
+│       └── README.md
 │
 ├── phase2_problem_solving/          # 프로그래머스 문제풀이
 │   ├── lv0/

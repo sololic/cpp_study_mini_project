@@ -9,15 +9,16 @@ Python 개발자 관점에서 C++ 핵심 개념을 정리한 파일 모음입니
 ```
 week1/
 ├── concepts/
-│   ├── AI_basics/        ← AI 생성 개념 예제
-│   │   ├── main.cpp      ← 전체 실행 진입점
-│   │   ├── data_types.cpp/h  ← 자료형
-│   │   ├── references.cpp/h  ← 참조
-│   │   ├── pointers.cpp/h    ← 포인터
-│   │   └── vectors.cpp/h     ← 동적 배열 (std::vector)
-│   └── My_basics/        ← 직접 작성한 추가 학습 코드
-├── questions/            ← 개념 확인 문제 풀이
-├── week1_basics.cpp      ← 리팩토링 전 단일 파일 (히스토리용)
+│   ├── AI_basics/              ← AI 생성 개념 예제
+│   │   ├── main.cpp            ← 전체 실행 진입점
+│   │   ├── data_types.cpp/h    ← 자료형
+│   │   ├── references.cpp/h    ← 참조
+│   │   ├── pointers.cpp/h      ← 포인터
+│   │   └── vectors.cpp/h       ← 동적 배열 (std::vector)
+│   └── My_basics/              ← 직접 작성한 추가 학습 코드
+│       └── 1_test_iostream.cpp ← iostream 실습 (에러 재현 기록 포함)
+├── questions/                  ← 개념 확인 문제 풀이
+├── week1_basics.cpp            ← 리팩토링 전 단일 파일 (히스토리용)
 └── README.md
 ```
 
@@ -361,6 +362,31 @@ Python의 `list`와 거의 동일하다.
 | `nums.append(4)` | `nums.push_back(4);` |
 | `len(nums)` | `nums.size()` |
 | `for n in nums:` | `for (int n : nums)` |
+
+---
+
+### `My_basics/1_test_iostream.cpp` — iostream 실습
+
+`<iostream>` 없이 `std::cout`을 쓰면 어떤 에러가 나는지 직접 확인한 실습 파일.
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, C++!\n";
+    return 0;
+}
+```
+
+`#include <iostream>` 없이 컴파일하면 아래 에러가 발생한다:
+
+```
+error: 'cout' is not a member of 'std'
+note: 'std::cout' is defined in header '<iostream>';
+      this is probably fixable by adding '#include <iostream>'
+```
+
+> `std::cout`은 `<iostream>` 라이브러리에 속해 있기 때문에, 명시적으로 include하지 않으면 컴파일러가 찾지 못한다.
 
 ---
 
