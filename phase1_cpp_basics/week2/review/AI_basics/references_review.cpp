@@ -42,16 +42,22 @@ void ref_const() {
 
 // 3. 참조 vs 값 복사
 void ref_vs_copy() {
+    std::cout << "[참조 vs 값 복사]\n";    
     int original = 5;
 
+    // int& ref  = original;
     int copy = original;    // 값 복사 → 별개의 변수
     int& ref  = original;   // 참조   → 같은 변수
+    std::cout << "copy = original 대입 후, copy = " << copy << "\n";  // 200 
+    std::cout << "copy = original 대입 후, ref = " << ref << "\n";  // 200 
 
     copy = 100;
+    std::cout << "copy = 100 대입 후, original = " << original << "\n";  // 5 그대로
+    std::cout << "copy = 100 대입 후, copy = " << copy << "\n";  // 200 
+
     ref  = 200;
 
-    std::cout << "[참조 vs 값 복사]\n";
-    std::cout << "copy = 100 대입 후, original = " << original << "\n";  // 5 그대로
+    std::cout << "copy = 100 대입 후, original = " << original << "\n";  // 200 
     std::cout << "ref  = 200 대입 후, original = " << original << "\n\n"; // 200으로 변경
 }
 

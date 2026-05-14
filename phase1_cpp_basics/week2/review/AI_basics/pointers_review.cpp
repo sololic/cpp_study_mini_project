@@ -40,7 +40,7 @@ void ptr_nullptr() {
     std::cout << "[nullptr]\n";
     std::cout << "ptr = " << ptr << "\n";   // 0x0
 
-    // *ptr = 10;  // 위험! nullptr 역참조 → 프로그램 크래시
+    // *ptr = 10;  // 위험! nullptr 역참조 → 프로그램 크래시(Segmentation fault)
 
     // 포인터 사용 전 nullptr 체크가 중요하다
     if (ptr != nullptr) {
