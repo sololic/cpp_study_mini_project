@@ -52,6 +52,7 @@ void ptr_const() {
     int b = 100;
     ptr = &b;       // ptr이 이제 b의 주소를 가리킴
     std::cout << "ptr이 b의 주소를 가리키도록 변경 후, ptr = " << ptr << ", *ptr = " << *ptr << "\n\n";
+    
     /*
         **결론**
         const int* ptr은 "ptr이 가리키는 값을 변경할 수 없다"는 의미이므로, 
