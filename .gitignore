@@ -1,0 +1,21 @@
+# 컴파일 결과물
+*.o
+*.out
+*.a
+*.so
+
+# 확장자 없는 실행파일 (g++ -o 로 생성된 것들)
+data_types
+week1
+test
+test_2
+test_3
+
+# 빌드 디렉토리
+build/
+cmake-build-*/
+
+# Python 임시 파일
+__pycache__/
+*.pyc
+test.py
