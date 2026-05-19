@@ -80,10 +80,15 @@ cpp_study_mini_project/
 │   │   ├── questions/               # 개념 확인 문제 풀이
 │   │   ├── week1_basics.cpp         # 리팩토링 전 단일 파일 (히스토리용)
 │   │   └── README.md
-│   └── week2/
-│       ├── review/                  # 1단계: 참조·포인터·동적배열 복습
-│       ├── concepts/                # 2단계: 클래스·스마트포인터·람다·콜백
-│       ├── questions/               # 3단계: 실습 문제
+│   │   └── week2/
+│   │   ├── review/                  # 참조·포인터·동적배열 복습
+│   │   ├── concepts/                # 새 개념 예제
+│   │   ├── questions/               # 실습 문제
+│   │   └── README.md
+│   └── week3/
+│       ├── concepts/                # 자료형 심화·연산자·조건문·반복문
+│       ├── questions/               # 실습 문제
+│       ├── docs/                    # 개념 정리 md
 │       └── README.md
 │
 ├── phase2_problem_solving/          # 프로그래머스 문제풀이
