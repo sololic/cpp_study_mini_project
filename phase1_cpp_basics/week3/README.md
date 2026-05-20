@@ -80,12 +80,13 @@ week3/
 
 ```bash
 cd concepts/AI_basics
+mkdir -p build
 
 # 전체 실행
-g++ -std=c++17 main.cpp data_types_advanced.cpp operators.cpp control_flow.cpp -o week3 && ./week3
+g++ -std=c++17 main.cpp data_types_advanced.cpp operators.cpp control_flow.cpp -o build/week3 && ./build/week3
 
 # 주제별 단독 실행
-g++ -std=c++17 -DSTANDALONE data_types_advanced.cpp -o dt && ./dt
-g++ -std=c++17 -DSTANDALONE operators.cpp -o op && ./op
-g++ -std=c++17 -DSTANDALONE control_flow.cpp -o cf && ./cf
+g++ -std=c++17 -DSTANDALONE data_types_advanced.cpp -o build/dt && ./build/dt
+g++ -std=c++17 -DSTANDALONE operators.cpp -o build/op && ./build/op
+g++ -std=c++17 -DSTANDALONE control_flow.cpp -o build/cf && ./build/cf
 ```
