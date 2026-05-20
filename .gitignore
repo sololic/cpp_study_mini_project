@@ -16,7 +16,8 @@ test_2
 test_3
 
 # 빌드 디렉토리
-build/
+build/*
+!build/.gitkeep
 cmake-build-*/
 
 # Python 임시 파일
