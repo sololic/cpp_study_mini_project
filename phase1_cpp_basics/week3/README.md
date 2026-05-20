@@ -32,7 +32,11 @@ Part 02 (기본 문법) + Part 03 (조건문·반복문) 기반 학습.
 ```
 week3/
 ├── concepts/
-│   ├── AI_basics/      ← 개념 예제 코드
+│   ├── AI_basics/
+│   │   ├── main.cpp                  ← 전체 실행 진입점
+│   │   ├── data_types_advanced.cpp/h ← 자료형 심화 (sizeof, auto, 타입변환, 오버플로우, const)
+│   │   ├── operators.cpp/h           ← 연산자 심화 (정수나눗셈, ++/--, 삼항, 비트)
+│   │   └── control_flow.cpp/h        ← 조건문·반복문 (switch, do-while, break/continue)
 │   └── My_basics/      ← 직접 작성한 실습 코드
 ├── questions/          ← 문제 풀이
 ├── docs/               ← 개념 정리 md
@@ -76,8 +80,12 @@ week3/
 
 ```bash
 cd concepts/AI_basics
-g++ -std=c++17 파일명.cpp -o 출력파일 && ./출력파일
 
-# 단독 실행
-g++ -std=c++17 -DSTANDALONE 파일명.cpp -o 출력파일 && ./출력파일
+# 전체 실행
+g++ -std=c++17 main.cpp data_types_advanced.cpp operators.cpp control_flow.cpp -o week3 && ./week3
+
+# 주제별 단독 실행
+g++ -std=c++17 -DSTANDALONE data_types_advanced.cpp -o dt && ./dt
+g++ -std=c++17 -DSTANDALONE operators.cpp -o op && ./op
+g++ -std=c++17 -DSTANDALONE control_flow.cpp -o cf && ./cf
 ```
