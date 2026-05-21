@@ -40,11 +40,51 @@ std::cout << sizeof(char)   << "\n";  // 1 byte
 | 자료형 | 핵심 | 언제 쓰나 |
 |--------|------|-----------|
 | `int` | 정수, 4 bytes | 일반적인 정수 연산 |
+| `long` | 정수, 4 or 8 bytes | 환경마다 다름 → `long long` 권장 |
+| `long long` | 정수, 8 bytes | int 범위 초과하는 큰 정수 |
 | `double` | 실수, 8 bytes | 좌표, 속도, 각도 (정밀도 중요할 때) |
 | `float` | 실수, 4 bytes | 메모리 절약 필요할 때 (double 대비) |
 | `char` | 문자 1개 or 작은 정수, 1 byte | 문자 처리, -128~127 범위 정수 |
 | `bool` | true/false | 조건 상태 저장 |
 | `unsigned` | 음수 없는 정수 | 절대 음수가 될 수 없는 값 (밝기, 패킷 크기 등) |
+
+---
+
+## 📖 long — 왜 쓰기 애매한가?
+
+`long`은 플랫폼(OS/컴파일러)마다 크기가 달라진다.
+
+```
+Windows (MSVC)  : long = 4 bytes  (int와 동일)
+Linux / macOS   : long = 8 bytes  (long long과 동일)
+```
+
+즉, 같은 코드를 Windows에서 빌드하면 4 bytes, Linux에서 빌드하면 8 bytes가 된다.  
+**이식성이 없기 때문에 실무에서는 `long`을 거의 쓰지 않는다.**
+
+### 대신 뭘 쓰나?
+
+```cpp
+// int 범위(21억)를 넘는 큰 정수가 필요할 때
+long long big = 9223372036854775807LL;  // 약 922경, 8 bytes 보장
+
+// 크기를 정확히 고정하고 싶을 때 (이식성 최우선)
+#include <cstdint>
+int32_t  a;  // 항상 4 bytes
+int64_t  b;  // 항상 8 bytes
+```
+
+### 정리
+
+| 상황 | 추천 자료형 |
+|------|------------|
+| 일반 정수 | `int` |
+| 21억 초과하는 정수 | `long long` |
+| 크기를 정확히 고정해야 할 때 | `int32_t`, `int64_t` |
+| `long` | 사용 비추 (플랫폼마다 크기 다름) |
+
+> Python은 정수 크기 제한이 없어서 이런 고민 자체가 없다.  
+> C++에서는 큰 수가 필요하면 명시적으로 `long long`을 써야 한다.
 
 ---
 
@@ -157,6 +197,53 @@ std::cout << (int)c;   // 65  ← 'A'의 ASCII 코드
 char level = 5;   // 1 byte로 충분
 int  level = 5;   // 4 bytes, 낭비
 ```
+
+---
+
+---
+
+## 📖 산술 변환 규칙 — 연산 결과의 타입은 어떻게 결정되나?
+
+연산에 사용된 타입을 따라서 결과 타입이 결정된다.  
+두 타입이 다르면 **더 큰 타입으로 자동 변환 후 연산**한다.
+
+```cpp
+int + int             → int
+long long + long long → long long
+int + double          → double   (int가 double로 자동 변환)
+int + long long       → long long (int가 long long으로 자동 변환)
+```
+
+### ⚠️ 오버플로우 주의
+
+```cpp
+// 위험: int * int → int로 연산 → 결과가 int 범위 초과 → 오버플로우
+long long result = 2000000000 * 2000000000;
+// warning: integer overflow, results in '-1651507200'
+
+// 안전: long long * long long → long long으로 연산
+long long result = 2000000000LL * 2000000000LL;  // 4000000000000000000
+```
+
+한쪽만 `LL`을 붙여도 나머지가 자동으로 `long long`으로 변환되어 안전하다:
+```cpp
+long long result = 2000000000LL * 2000000000;  // 안전
+```
+
+### 접미사 종류
+
+| 접미사 | 타입 | 예시 |
+|--------|------|------|
+| 없음 | `int` | `100` |
+| `L` | `long` | `100L` |
+| `LL` | `long long` | `100LL` |
+| `U` | `unsigned int` | `100U` |
+| `ULL` | `unsigned long long` | `100ULL` |
+| `f` | `float` | `3.14f` |
+| 없음 | `double` | `3.14` |
+
+> 단순 대입은 접미사 없어도 자동 변환되지만,  
+> **연산식 안에서 큰 수를 다룰 때**는 `LL` 등 접미사가 중요하다.
 
 ---
 

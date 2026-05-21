@@ -18,6 +18,24 @@ void types_sizeof() {
     std::cout << "float  : " << sizeof(float)  << " bytes\n"; // 4
     std::cout << "double : " << sizeof(double) << " bytes\n"; // 8
 
+    bool b = true;
+    char c = 'A';
+    std::string s = "Hello, C++!";  // std::string은 내부적으로 동적 메모리를 사용
+    int i = 42;
+    long l = 12345678900;
+    // long long result = 2000000000 * 2000000000;
+    long long result = 2000000000LL * 2000000000LL;
+    float f = 3.14f;
+    double d = 2.71828;
+    std::cout << "\n변수 b (bool)   : " << sizeof(b) << " byte\n";
+    std::cout << "변수 c (char)   : " << sizeof(c) << " byte\n";
+    std::cout << "변수 s (string) : " << sizeof(s) << " bytes\n";
+    std::cout << "변수 i (int)    : " << sizeof(i) << " bytes\n";
+    std::cout << "변수 l (long)   : " << sizeof(l) << " bytes\n";
+    std::cout << result << "\n";
+    std::cout << "변수 f (float)  : " << sizeof(f) << " bytes\n";
+    std::cout << "변수 d (double) : " << sizeof(d) << " bytes\n";   
+
     // Python은 int 크기 제한 없음 (자동 확장)
     // C++은 int = 4bytes → 최대 약 21억까지만 저장 가능
     std::cout << "\n";
