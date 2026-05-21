@@ -113,7 +113,9 @@ cpp_study_mini_project/
 │       │   ├── AI_basics/           # 개념 예제 코드
 │       │   └── My_basics/           # 직접 작성한 실습 코드
 │       ├── questions/               # 문제 풀이
-│       ├── docs/                    # 개념 정리 md
+│       ├── docs/
+│       │   ├── data_types_summary.md       # 자료형 심화 개념 정리
+│       │   └── data_types_presentation.md  # 스터디 발표용 요약
 │       └── README.md
 │
 ├── phase2_problem_solving/          # 프로그래머스 문제풀이 (미시작)
@@ -121,6 +123,7 @@ cpp_study_mini_project/
 │   ├── lv1/
 │   └── lv2/
 │
+├── CLAUDE.md
 └── README.md
 ```
 
