@@ -47,6 +47,38 @@ std::cout << sizeof(char)   << "\n";  // 1 byte
 | `char` | 문자 1개 or 작은 정수, 1 byte | 문자 처리, -128~127 범위 정수 |
 | `bool` | true/false | 조건 상태 저장 |
 | `unsigned` | 음수 없는 정수 | 절대 음수가 될 수 없는 값 (밝기, 패킷 크기 등) |
+| `auto` | 초기값으로 타입 자동 추론 | 타입이 길거나 복잡할 때 |
+
+---
+
+## 📖 auto — 타입 자동 추론
+
+초기값을 보고 컴파일러가 타입을 자동으로 결정한다.  
+반드시 **`= 값`과 함께** 써야 한다.
+
+```cpp
+auto a = 10;      // int
+auto b = 3.14;    // double
+auto c = true;    // bool
+auto d = 'A';     // char
+auto e = 3.14f;   // float
+
+auto x;  // 에러! 초기값 없으면 타입 추론 불가
+```
+
+### Python과 차이
+
+```python
+x = 10
+x = "hello"  # Python은 타입 자유롭게 변경 가능
+```
+
+```cpp
+auto x = 10;   // int로 추론, 타입 고정
+x = "hello";   // 에러! 한번 추론되면 변경 불가
+```
+
+> Python처럼 편하게 쓸 수 있지만, 한 번 추론되면 타입이 고정된다는 차이가 있다.
 
 ---
 
