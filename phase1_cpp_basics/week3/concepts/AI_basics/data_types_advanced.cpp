@@ -49,11 +49,13 @@ void types_auto() {
     auto b = 3.14;      // double로 추론
     auto c = true;      // bool로 추론
     auto d = 'A';       // char로 추론
-
+    int e;
+    
     std::cout << "auto a = 10    → sizeof: " << sizeof(a) << " bytes (int)\n";
     std::cout << "auto b = 3.14  → sizeof: " << sizeof(b) << " bytes (double)\n";
     std::cout << "auto c = true  → sizeof: " << sizeof(c) << " byte  (bool)\n";
     std::cout << "auto d = 'A'   → sizeof: " << sizeof(d) << " byte  (char)\n";
+    std::cout << "auto e    → sizeof: " << sizeof(e) << " bytes (int)\n";
 
     // Python처럼 타입 명시 안 해도 되지만
     // 초기화 없이는 사용 불가
