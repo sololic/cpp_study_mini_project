@@ -70,14 +70,23 @@ void op_bitwise() {
 
     int a = 0b1010;  // 10
     int b = 0b1100;  // 12
+    int c = 0b1111;  // 15
+    int d = 0b11111;  // 31
+    int e = 0b11101;  // 29
+    int f = -0b1111;  // -15
 
     std::cout << "a      = " << a        << " (1010)\n";
     std::cout << "b      = " << b        << " (1100)\n";
+    std::cout << "f      = " << f        << " (-1111)\n";
     std::cout << "a & b  = " << (a & b)  << " (1000) AND\n";
     std::cout << "a | b  = " << (a | b)  << " (1110) OR\n";
     std::cout << "a ^ b  = " << (a ^ b)  << " (0110) XOR\n";
     std::cout << "~a     = " << (~a)     << "       NOT\n";
     std::cout << "~b     = " << (~b)     << "       NOT\n";
+    std::cout << "~c     = " << (~c)     << "       NOT\n";
+    std::cout << "~d     = " << (~d)     << "       NOT\n";
+    std::cout << "~e     = " << (~e)     << "       NOT\n";
+    std::cout << "~f     = " << (~f)     << "       NOT\n";
     std::cout << "a << 1 = " << (a << 1) << " (10100) 왼쪽 시프트 (x2)\n";
     std::cout << "a >> 1 = " << (a >> 1) << " (0101)  오른쪽 시프트 (/2)\n";
 
