@@ -77,6 +77,7 @@ void op_bitwise() {
     std::cout << "a | b  = " << (a | b)  << " (1110) OR\n";
     std::cout << "a ^ b  = " << (a ^ b)  << " (0110) XOR\n";
     std::cout << "~a     = " << (~a)     << "       NOT\n";
+    std::cout << "~b     = " << (~b)     << "       NOT\n";
     std::cout << "a << 1 = " << (a << 1) << " (10100) 왼쪽 시프트 (x2)\n";
     std::cout << "a >> 1 = " << (a >> 1) << " (0101)  오른쪽 시프트 (/2)\n";
 
