@@ -1,23 +1,10 @@
-#include "classes.h"
-#include "inheritance.h"
-#include "polymorphism.h"
+#include "control_flow.h"
 
 int main() {
-    // ── 클래스 기초 ──
-    cls_basic();
-    cls_constructor();
-    cls_access();
-    cls_this();
-
-    // ── 상속 ──
-    inh_basic();
-    inh_access();
-    inh_constructor_order();
-
-    // ── 다형성 ──
-    poly_virtual();
-    poly_override();
-    poly_pure_virtual();
+    // ── 조건문 & 반복문 ──
+    cf_switch();
+    cf_do_while();
+    cf_break_continue();
 
     return 0;
 }
