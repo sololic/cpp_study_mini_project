@@ -1,5 +1,6 @@
 #include "operators.h"
 #include <iostream>
+#include <algorithm>  // std::swap
 
 // ─────────────────────────────────────────
 //  연산자 심화
@@ -17,6 +18,9 @@ void op_integer_division() {
     std::cout << "7 % 2  = " << a % b         << "\n";  // 1  (나머지)
     std::cout << "-7 / 2 = " << -a / b        << "\n";  // -3 (0 방향으로 버림)
     std::cout << "-7 % 2 = " << -a % b        << "\n";  // -1
+
+    // std::swap(a, b);
+    // std::cout << "swap(a,b) = " << a << ", " << b << "\n";  // -1
 
     // Python 비교:
     // Python: 7 / 2  = 3.5   (항상 float)
@@ -69,11 +73,14 @@ void op_bitwise() {
     std::cout << "[비트 연산자]\n";
 
     int a = 0b1010;  // 10
+    // int a = 0b0101;
     int b = 0b1100;  // 12
     int c = 0b1111;  // 15
     int d = 0b11111;  // 31
     int e = 0b11101;  // 29
     int f = -0b1111;  // -15
+
+    // ~a = -(a + 1)
 
     std::cout << "a      = " << a        << " (1010)\n";
     std::cout << "b      = " << b        << " (1100)\n";

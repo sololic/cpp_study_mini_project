@@ -36,12 +36,22 @@ void ptr_basic() {
 // 2. nullptr — 포인터의 초기값
 void ptr_nullptr() {
     int* ptr = nullptr;   // 아무것도 가리키지 않는 포인터
-
+    int val = 42;
+    ptr = &val;
     std::cout << "[nullptr]\n";
     std::cout << "ptr = " << ptr << "\n";   // 0x0
+    std::cout << "*ptr = " << *ptr << "\n";   // 0x0
+    std::cout << "val = " << val << "\n";   // 0x0    
+    std::cout << "&val = " << &val << "\n";   // 0x0  
+    * ptr = 99;  // val이 99로 변경됨
+
+    std::cout << "ptr = " << ptr << "\n";   // 0x0
+    std::cout << "*ptr = " << *ptr << "\n";   // 0x0
+    std::cout << "val = " << val << "\n";   // 0x0
+    std::cout << "&val = " << &val << "\n";   // 0x0
 
     // *ptr = 10;  // 위험! nullptr 역참조 → 프로그램 크래시(Segmentation fault)
-
+    // std::cout << "ptr = " << ptr << "\n"; 
     // 포인터 사용 전 nullptr 체크가 중요하다
     if (ptr != nullptr) {
         std::cout << *ptr << "\n";
@@ -105,10 +115,10 @@ void ptr_const() {
 
 #ifdef STANDALONE
 int main() {
-    ptr_basic();
+    // ptr_basic();
     ptr_nullptr();
-    ptr_vs_ref();
-    ptr_const();
+    // ptr_vs_ref();
+    // ptr_const();
     return 0;
 }
 #endif

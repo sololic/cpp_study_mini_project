@@ -50,12 +50,30 @@ void types_auto() {
     auto c = true;      // bool로 추론
     auto d = 'A';       // char로 추론
     int e;
-    
+    // auto f;
+    /*
+    data_types_advanced.cpp: In function ‘void types_auto()’:
+    data_types_advanced.cpp:53:5: error: declaration of ‘auto f’ has no initializer
+    53 |     auto f;
+        |     ^~~~
+    */
+    // auto "hi";
+    /*
+    data_types_advanced.cpp: In function ‘void types_auto()’:
+    data_types_advanced.cpp:54:10: error: expected unqualified-id before string constant
+    54 |     auto "hi";
+        |          ^~~~   
+    */ 
+    // auto true;
+
     std::cout << "auto a = 10    → sizeof: " << sizeof(a) << " bytes (int)\n";
     std::cout << "auto b = 3.14  → sizeof: " << sizeof(b) << " bytes (double)\n";
     std::cout << "auto c = true  → sizeof: " << sizeof(c) << " byte  (bool)\n";
     std::cout << "auto d = 'A'   → sizeof: " << sizeof(d) << " byte  (char)\n";
-    std::cout << "auto e    → sizeof: " << sizeof(e) << " bytes (int)\n";
+    std::cout << "int e    → sizeof: " << sizeof(e) << " bytes (int)\n";
+    // std::cout << "auto f    → sizeof: " << sizeof(f) << " bytes (int)\n";
+    // std::cout << "auto \"hi\" → sizeof: " << sizeof("hi") << " bytes (const char[3])\n";
+
 
     // Python처럼 타입 명시 안 해도 되지만
     // 초기화 없이는 사용 불가
