@@ -65,8 +65,8 @@ week1~2에서 자료형·참조·포인터·vector를 빠르게 학습했지만,
 | Week 3 | 02 | 자료형 심화 (sizeof·auto·타입변환·오버플로우·const) | ✅ |
 | Week 4 | 02 | 연산자 심화 | ✅ |
 | Week 5 | 03 | 조건문·반복문 | 🔄 |
-| Week 6 | 04·08·09·10 | 클래스·상속·다형성 | ⬜ |
-| Week 7 | 07·11 | 함수 심화·모듈화 + 템플릿 | ⬜ |
+| Week 6 | - | 실제 코드 분석: 그리퍼 제어 (ROS2 노드) | 🔄 |
+| Week 7 | - | 실제 코드 분석: 그리퍼 SDK 드라이버 (mutex·콜백) | 🔄 |
 | Week 8 | 14·15 | STL + 스마트 포인터 | ⬜ |
 | Week 9 | 12·16 | 예외처리 + 스레드·동시성 | ⬜ |
 
@@ -118,12 +118,29 @@ cpp_study_mini_project/
 │   │   │   ├── data_types_summary.md       # 자료형 심화 개념 정리
 │   │   │   └── data_types_presentation.md  # 스터디 발표용 요약
 │   │   └── README.md
-│   └── week4/                       # 🔄 연산자 심화·조건문·반복문
-│       ├── concepts/
-│       │   ├── AI_basics/           # 개념 예제 코드
-│       │   └── My_basics/           # 직접 작성한 실습 코드
-│       ├── questions/               # 문제 풀이
-│       ├── docs/                    # 개념 정리 md
+│   ├── week4/                       # ✅ 연산자 심화
+│   │   ├── concepts/
+│   │   │   ├── AI_basics/           # 개념 예제 코드
+│   │   │   └── My_basics/           # 직접 작성한 실습 코드
+│   │   ├── questions/               # 문제 풀이
+│   │   ├── docs/                    # 개념 정리 md
+│   │   └── README.md
+│   ├── week5/                       # 🔄 조건문·반복문
+│   │   ├── concepts/
+│   │   │   ├── AI_basics/           # 개념 예제 코드
+│   │   │   └── My_basics/           # 직접 작성한 실습 코드
+│   │   ├── questions/               # 문제 풀이
+│   │   ├── docs/                    # 개념 정리 md
+│   │   └── README.md
+│   ├── week6/                       # 🔄 실제 코드 분석: 그리퍼 제어 (ROS2 노드)
+│   │   ├── original/                # 분석할 원본 코드 (수정 금지)
+│   │   ├── analysis/                # 분석 메모 md
+│   │   ├── practice/                # 직접 실습한 코드
+│   │   └── README.md
+│   └── week7/                       # 🔄 실제 코드 분석: 그리퍼 SDK 드라이버
+│       ├── original/                # 분석할 원본 코드 (수정 금지)
+│       ├── analysis/                # 분석 메모 md
+│       ├── practice/                # 블록 구조 주석 디버그 버전 + 실습 코드
 │       └── README.md
 │
 ├── phase2_problem_solving/          # 프로그래머스 문제풀이 (미시작)
