@@ -1,7 +1,8 @@
 # `struct` vs `class` 정리
 
-`dg3f_m_sdk_driver_debug.cpp`의 `ReceivedGripperData`(SDK가 정의한 데이터 타입)를 보다가
-"이거 struct야 class야?"를 정리한 문서.
+> 대상 코드: `dg3f_m_sdk_driver_debug.cpp` **[블록 1.2] `ReceivedGripperData` 타입** (SDK가 `DGDataTypes.h`에 정의)
+
+`ReceivedGripperData`(SDK가 정의한 데이터 타입)를 보다가 "이거 struct야 class야?"를 정리한 문서.
 
 ---
 

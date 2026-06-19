@@ -1,6 +1,8 @@
 # 스레드 / mutex 정리 (Python 비교 중심)
 
-`dg3f_m_sdk_driver_debug.cpp`의 [블록 1.2]에 나오는 아래 코드가 무엇인지 정리한 문서.
+> 대상 코드: `dg3f_m_sdk_driver_debug.cpp` **[블록 1.2] SDK 콜백 공유 데이터** (관련: [블록 1.3.1], [블록 2.5])
+
+아래 코드가 무엇인지 정리한 문서.
 
 ```cpp
 std::mutex g_data_mutex;
