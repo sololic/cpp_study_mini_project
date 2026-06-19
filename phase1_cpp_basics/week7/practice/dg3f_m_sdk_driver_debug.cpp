@@ -60,7 +60,7 @@
  */
 
 #include <cstring>
-#include <mutex>
+#include <mutex>  // mutex.lock() -> python : threading.Lock()
 #include <chrono>
 
 #include "rclcpp/rclcpp.hpp"
